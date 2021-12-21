@@ -10,7 +10,7 @@
 int main(void){
     unsigned int results[length];
  
-    pid_t pid1 = fork(); //Child 1
+    pid_t pid1 = fork();
     pid_t pid2;
 
     if(pid1 == 0){
@@ -46,8 +46,5 @@ int main(void){
         }
         exit(0);
     }
-
-
-
     return 0;
 }

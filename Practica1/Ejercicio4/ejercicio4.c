@@ -4,6 +4,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+/*
+    Este ejercicio simplemente no puede realizarse.
+*/
+
 int main(int argc, char *argv[]){
 	pid_t pid;
     int i;

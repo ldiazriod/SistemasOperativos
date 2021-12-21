@@ -5,25 +5,25 @@
 #include <string.h>
 #include <fcntl.h>
 
-#define MAXLON 1000
+#define length 1000
 
 pthread_t thread1, thmain;
 pthread_attr_t attr;
 
 void *cuenta (void *nombre){
-    int cont = 0, leidos;
-    char cadena[MAXLON];
+    int counter = 0, numC;
+    char buffer[length];
     char *name = (char *)nombre;
     int fd;
     fd = open(name, O_RDONLY);
-    while((leidos=read(fd, cadena, MAXLON)) != 0){
-        for(int pos=0; pos < leidos; pos++){
-            if((cadena[pos]=='a') || (cadena[pos]=='A')){
-                cont++;
+    while((numC=read(fd, buffer, length)) != 0){
+        for(int pos=0; pos < numC; pos++){
+            if((buffer[pos]=='a') || (buffer[pos]=='A')){
+                counter++;
             }
         }
     }
-    printf("Fichero %s: %d caracteres 'a' o 'A' encontrados \n", name, cont);
+    printf("Fichero %s: %d caracteres 'a' o 'A' encontrados \n", name, counter);
     close(fd);
     pthread_exit(NULL);
 }
